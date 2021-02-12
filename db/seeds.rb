@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Wallet.delete_all
+User.delete_all
+
+user1 = User.create(username: "Dustin", password: "123")
+
+
+wallet1 = Wallet.create(user_id: user1.id, cash: 10000.00,balance: 0, btc: 1, eth: 0, doge: 0)
