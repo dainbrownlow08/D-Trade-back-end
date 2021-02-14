@@ -15,6 +15,10 @@ class UsersController < ApplicationController
 
     def show 
         user = User.find_by(username: params[:id])
-        render json: user.wallet
+        if user == nil 
+            render json: nil
+        else
+            render json: user.wallet
+        end
     end
 end
