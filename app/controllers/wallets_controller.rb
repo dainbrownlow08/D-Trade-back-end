@@ -11,7 +11,13 @@ class WalletsController < ApplicationController
 
     def update
         wallet = Wallet.find(params[:id])
-        wallet.update(balance: params["wallet"]["balance"])
+        newBalance = wallet.balance
+        if params["wallet"]["balance"]
+          newBalance = params["wallet"]["balance"]
+          wallet.update(balance: newBalance)
+        else
+          wallet.update(params.keys[0].downcase.to_sym => params[params.keys[0]], cash: params["cash"])
+        end
         render json: wallet
     end
 end
