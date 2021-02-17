@@ -7,7 +7,8 @@ class UsersController < ApplicationController
     def create
         user = User.create(username: params[:_json])
         if user.valid?
-            render json: user.wallet
+            wallet = Wallet.create(cash: 250000, balance: 250000, btc: 0, eth: 0, doge: 0, user_id: user.id)
+            render json: wallet
         else
             render json: nil
         end
