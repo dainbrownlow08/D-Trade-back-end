@@ -39,6 +39,12 @@ ActiveRecord::Schema.define(version: 2021_02_11_232705) do
     t.float "btc"
     t.float "eth"
     t.float "doge"
+    t.float "xrp"
+    t.float "ltc"
+    t.float "link"
+    t.float "xmr"
+    t.float "dot"
+    t.float "uni"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
